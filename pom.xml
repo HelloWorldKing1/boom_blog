@@ -53,6 +53,7 @@
         <module>boom_xo</module>
         <module>boom_commons</module>
         <module>boom_admin</module>
+        <module>boom_picture</module>
     </modules>
 
     <dependencyManagement>
