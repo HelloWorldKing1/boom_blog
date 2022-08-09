@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @date 2020年1月21日22:19:10
  */
 
-@FeignClient(name = "mogu-admin", configuration = FeignConfiguration.class)
+@FeignClient(name = "boom-admin", configuration = FeignConfiguration.class)
 public interface AdminFeignClient {
 
 

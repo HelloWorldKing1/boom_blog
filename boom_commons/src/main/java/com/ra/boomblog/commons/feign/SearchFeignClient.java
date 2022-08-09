@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author 陌溪
  * @date 2020年10月6日09:08:13
  */
-@FeignClient(name = "mogu-search", contextId = "searchFeignClient", configuration = FeignConfiguration.class, fallback = SearchFeignFallback.class)
+@FeignClient(name = "boom-search", contextId = "searchFeignClient", configuration = FeignConfiguration.class, fallback = SearchFeignFallback.class)
 public interface SearchFeignClient {
 
     /**

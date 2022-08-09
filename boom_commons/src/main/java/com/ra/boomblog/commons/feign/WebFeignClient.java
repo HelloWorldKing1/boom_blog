@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2020年1月21日22:19:10
  */
 
-@FeignClient(name = "mogu-web", configuration = FeignConfiguration.class)
+@FeignClient(name = "boom-web", configuration = FeignConfiguration.class)
 public interface WebFeignClient {
 
     /**
