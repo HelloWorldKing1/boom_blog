@@ -55,6 +55,7 @@
         <module>boom_admin</module>
         <module>boom_picture</module>
         <module>boom_gateway</module>
+        <module>boom_web</module>
     </modules>
 
     <dependencyManagement>

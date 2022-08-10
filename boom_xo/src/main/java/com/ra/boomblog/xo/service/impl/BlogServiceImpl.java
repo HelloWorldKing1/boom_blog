@@ -586,7 +586,6 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
         page.setCurrent(blogVO.getCurrentPage());
         page.setSize(blogVO.getPageSize());
         queryWrapper.eq(SQLConf.STATUS, EStatus.ENABLE);
-
         if(StringUtils.isNotEmpty(blogVO.getOrderByAscColumn())) {
             // 将驼峰转换成下划线
             String column = StringUtils.underLine(new StringBuffer(blogVO.getOrderByAscColumn())).toString();
