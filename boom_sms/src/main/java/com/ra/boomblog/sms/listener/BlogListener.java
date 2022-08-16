@@ -37,7 +37,7 @@ public class BlogListener {
     private SearchFeignClient searchFeignClient;
 
     // TODO 在这里同时需要对Redis和Solr进行操作，同时利用MQ来保证数据一致性
-    @RabbitListener(queues = "mogu.blog")
+    @RabbitListener(queues = "boom.blog")
     public void updateRedis(Map<String, String> map) {
 
         if (map != null) {
@@ -55,7 +55,7 @@ public class BlogListener {
             redisUtil.delete(RedisConf.DASHBOARD + Constants.SYMBOL_COLON + RedisConf.BLOG_COUNT_BY_SORT);
             redisUtil.delete(RedisConf.DASHBOARD + Constants.SYMBOL_COLON + RedisConf.BLOG_COUNT_BY_TAG);
 
-            String searchModel = ESearchModel.SQL;
+            String searchModel = ESearchModel.ES;
             String resultStr = webFeignClient.getSearchModel();
             Map<String, String> resultTempMap = (Map<String, String>) JsonUtils.jsonToMap(resultStr, String.class);
             if (resultTempMap.get(SysConf.CODE) != null && SysConf.SUCCESS.equals(resultTempMap.get(SysConf.CODE).toString())) {
@@ -72,7 +72,7 @@ public class BlogListener {
             try {
                 switch (comment) {
                     case SysConf.DELETE_BATCH: {
-                        log.info("mogu-sms处理批量删除博客");
+                        log.info("boom-sms处理批量删除博客");
                         redisUtil.set(RedisConf.BLOG_SORT_BY_MONTH + Constants.SYMBOL_COLON, "");
                         redisUtil.set(RedisConf.MONTH_SET, "");
 
@@ -87,14 +87,14 @@ public class BlogListener {
                     break;
 
                     case SysConf.EDIT_BATCH: {
-                        log.info("mogu-sms处理批量编辑博客");
+                        log.info("boom-sms处理批量编辑博客");
                         redisUtil.set(RedisConf.BLOG_SORT_BY_MONTH + Constants.SYMBOL_COLON, "");
                         redisUtil.set(RedisConf.MONTH_SET, "");
                     }
                     break;
 
                     case SysConf.ADD: {
-                        log.info("mogu-sms处理增加博客");
+                        log.info("boom-sms处理增加博客");
                         updateSearch(map);
                         if (ESearchModel.ES.equals(searchModel)) {
                             // 增加ES索引
@@ -107,7 +107,7 @@ public class BlogListener {
                     break;
 
                     case SysConf.EDIT: {
-                        log.info("mogu-sms处理编辑博客");
+                        log.info("boom-sms处理编辑博客");
                         updateSearch(map);
                         if (ESearchModel.ES.equals(searchModel)) {
                             // 增加ES索引
@@ -120,7 +120,7 @@ public class BlogListener {
                     break;
 
                     case SysConf.DELETE: {
-                        log.info("mogu-sms处理删除博客: uid:" + uid);
+                        log.info("boom-sms处理删除博客: uid:" + uid);
                         updateSearch(map);
                         if (ESearchModel.ES.equals(searchModel)) {
                             // 增加ES索引
@@ -132,12 +132,12 @@ public class BlogListener {
                     }
                     break;
                     default: {
-                        log.info("mogu-sms处理博客兜底方法");
+                        log.info("boom-sms处理博客兜底方法");
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("【mogu-sms】出现异常，请查看mogu-search是否启动！searchModel: " + searchModel);
+                log.error("【boom-sms】出现异常，请查看boom-search是否启动！searchModel: " + searchModel);
             }
         }
     }

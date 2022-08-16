@@ -21,7 +21,7 @@ public class MailListener {
     @Autowired
     private SendMailUtils sendMailUtils;
 
-    @RabbitListener(queues = "mogu.email")
+    @RabbitListener(queues = "boom.email")
     public void sendMail(Map<String, String> map) {
         if (map != null) {
             sendMailUtils.sendEmail(

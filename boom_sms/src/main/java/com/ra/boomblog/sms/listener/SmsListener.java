@@ -19,7 +19,7 @@ public class SmsListener {
     @Autowired
     private SmsUtil smsUtil;
 
-    @RabbitListener(queues = "mogu.sms")
+    @RabbitListener(queues = "boom.sms")
     public void sendSms(Map<String, String> map) {
         //TODO 短信发送暂时不用
 //        try {

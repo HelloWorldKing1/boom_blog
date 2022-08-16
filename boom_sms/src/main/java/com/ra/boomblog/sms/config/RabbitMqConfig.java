@@ -13,13 +13,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqConfig {
 
-    public static final String MOGU_BLOG = "mogu.blog";
-    public static final String MOGU_EMAIL = "mogu.email";
-    public static final String MOGU_SMS = "mogu.sms";
+    public static final String BOOM_BLOG = "boom.blog";
+    public static final String BOOM_EMAIL = "boom.email";
+    public static final String BOOM_SMS = "boom.sms";
     public static final String EXCHANGE_DIRECT = "exchange.direct";
-    public static final String ROUTING_KEY_BLOG = "mogu.blog";
-    public static final String ROUTING_KEY_EMAIL = "mogu.email";
-    public static final String ROUTING_KEY_SMS = "mogu.sms";
+    public static final String ROUTING_KEY_BLOG = "boom.blog";
+    public static final String ROUTING_KEY_EMAIL = "boom.email";
+    public static final String ROUTING_KEY_SMS = "boom.sms";
 
     /**
      * 声明交换机
@@ -35,9 +35,9 @@ public class RabbitMqConfig {
      *
      * @return
      */
-    @Bean(MOGU_BLOG)
+    @Bean(BOOM_BLOG)
     public Queue MOGU_BLOG() {
-        return new Queue(MOGU_BLOG);
+        return new Queue(BOOM_BLOG);
     }
 
     /**
@@ -45,9 +45,9 @@ public class RabbitMqConfig {
      *
      * @return
      */
-    @Bean(MOGU_EMAIL)
+    @Bean(BOOM_EMAIL)
     public Queue MOGU_EMAIL() {
-        return new Queue(MOGU_EMAIL);
+        return new Queue(BOOM_EMAIL);
     }
 
     /**
@@ -55,9 +55,9 @@ public class RabbitMqConfig {
      *
      * @return
      */
-    @Bean(MOGU_SMS)
+    @Bean(BOOM_SMS)
     public Queue MOGU_SMS() {
-        return new Queue(MOGU_SMS);
+        return new Queue(BOOM_SMS);
     }
 
     /**
@@ -68,7 +68,7 @@ public class RabbitMqConfig {
      * @return
      */
     @Bean
-    public Binding BINDING_QUEUE_INFORM_BLOG(@Qualifier(MOGU_BLOG) Queue queue, @Qualifier(EXCHANGE_DIRECT) Exchange exchange) {
+    public Binding BINDING_QUEUE_INFORM_BLOG(@Qualifier(BOOM_BLOG) Queue queue, @Qualifier(EXCHANGE_DIRECT) Exchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY_BLOG).noargs();
     }
 
@@ -80,7 +80,7 @@ public class RabbitMqConfig {
      * @return
      */
     @Bean
-    public Binding BINDING_QUEUE_INFORM_EMAIL(@Qualifier(MOGU_EMAIL) Queue queue, @Qualifier(EXCHANGE_DIRECT) Exchange exchange) {
+    public Binding BINDING_QUEUE_INFORM_EMAIL(@Qualifier(BOOM_EMAIL) Queue queue, @Qualifier(EXCHANGE_DIRECT) Exchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY_EMAIL).noargs();
     }
 
@@ -92,7 +92,7 @@ public class RabbitMqConfig {
      * @return
      */
     @Bean
-    public Binding BINDING_QUEUE_INFORM_SMS(@Qualifier(MOGU_SMS) Queue queue, @Qualifier(EXCHANGE_DIRECT) Exchange exchange) {
+    public Binding BINDING_QUEUE_INFORM_SMS(@Qualifier(BOOM_SMS) Queue queue, @Qualifier(EXCHANGE_DIRECT) Exchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY_SMS).noargs();
     }
 

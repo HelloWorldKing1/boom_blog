@@ -188,10 +188,10 @@
         </dependency>
 
         <!-- zipkin链路追踪 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- 引入SpringBoot配置文件处理类-->
         <dependency>

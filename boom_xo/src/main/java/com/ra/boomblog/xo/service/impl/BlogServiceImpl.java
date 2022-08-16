@@ -844,7 +844,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             Map<String, Object> map = new HashMap<>();
             map.put(SysConf.COMMAND, SysConf.EDIT_BATCH);
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.BOOM_BLOG, map);
         }
 
         return ResultUtil.successWithMessage(MessageConf.UPDATE_SUCCESS);
@@ -865,7 +865,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.LEVEL, blog.getLevel());
             map.put(SysConf.CREATE_TIME, blog.getCreateTime());
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.BOOM_BLOG, map);
 
             // 移除所有包含该博客的专题Item
             List<String> blogUidList = new ArrayList<>(Constants.NUM_ONE);
@@ -902,7 +902,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.COMMAND, SysConf.DELETE_BATCH);
             map.put(SysConf.UID, uidSbf);
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.BOOM_BLOG, map);
             // 移除所有包含该博客的专题Item
             subjectItemService.deleteBatchSubjectItemByBlogUid(uidList);
             // 移除该文章下所有评论
@@ -1787,7 +1787,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.CREATE_TIME, blog.getCreateTime());
 
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.BOOM_BLOG, map);
 
         } else if (EPublish.NO_PUBLISH.equals(blog.getIsPublish())) {
 
@@ -1799,7 +1799,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.CREATE_TIME, blog.getCreateTime());
 
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.BOOM_BLOG, map);
         }
     }
 

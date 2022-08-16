@@ -109,7 +109,7 @@ export default {
   name: "list",
   data() {
     return {
-      searchModel: 0, //搜索模式 0:SQL搜索、1:ES搜索、2:Solr搜索
+      searchModel: 1, //搜索模式 0:SQL搜索、1:ES搜索、2:Solr搜索
       blogData: [],
       keywords: "",
       currentPage: 1,

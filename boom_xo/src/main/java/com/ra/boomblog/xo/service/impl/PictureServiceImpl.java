@@ -135,7 +135,7 @@ public class PictureServiceImpl extends SuperServiceImpl<PictureMapper, Picture>
             map.put(SysConf.COMMAND, SysConf.EDIT_BATCH);
 
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.BOOM_BLOG, map);
         }
         picture.setFileUid(pictureVO.getFileUid());
         picture.setPicName(pictureVO.getPicName());

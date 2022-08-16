@@ -19,3 +19,4 @@ Action:
 
 Consider revisiting the entries above or defining a bean of type 'org.springframework.data.elasticsearch.core.ElasticsearchTemplate' in your configuration.
 
+[boom-search:192.168.20.115:8605] [,] 2022-08-16 17:57:19.799 ERROR 20520 [main] org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository:93 failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: [{#transport#-1}{6SAMmLmtQ-K-1QRXyD2XGA}{localhost}{127.0.0.1:9300}]
