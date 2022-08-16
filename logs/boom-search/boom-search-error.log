@@ -1,0 +1,21 @@
+[boom-search:192.168.20.115:8605] [,] 2022-08-16 17:29:23.344 ERROR 13240 [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter:40 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field elasticsearchTemplate in com.ra.boomblog.search.restapi.ElasticSearchRestApi required a bean of type 'org.springframework.data.elasticsearch.core.ElasticsearchTemplate' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+The following candidates were found but could not be injected:
+	- Bean method 'elasticsearchTemplate' in 'ElasticsearchDataConfiguration.TransportClientConfiguration' not loaded because @ConditionalOnBean (types: org.elasticsearch.client.Client; SearchStrategy: all) did not find any beans of type org.elasticsearch.client.Client
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.elasticsearch.core.ElasticsearchTemplate' in your configuration.
+
