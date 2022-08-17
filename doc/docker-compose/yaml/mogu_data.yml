@@ -1,0 +1,18 @@
+version: '3'
+services:
+  #授权服务
+  boom_data:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/nginx
+    container_name: boom_data
+    restart: always
+    ports:
+      - 80:80  
+      - 8600:8600
+    networks:
+      - boom
+    volumes:
+      - ../data/boom_data/:/home/boom_blog/boom_data/
+      - ../config/boom_data.conf:/etc/nginx/conf.d/default.conf
+networks:
+  boom:
+    external: true

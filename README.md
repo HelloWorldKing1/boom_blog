@@ -27,7 +27,7 @@
 - boom_web：提供web端API接口服务；
 - boom_picture： 图片服务，用于图片上传和下载；
 - boom_sms：消息服务，用于更新ElasticSearch、Solr索引、邮件和短信发送
-- boom_search：搜索服务，ElasticSearch和Solr作为检索工具，[支持可插拔配置](http://boomit.cn/#/info?blogUid=4042b4f4088e4e37e95d9fc75d97298b)，默认使用SQL搜索
+- boom_search：搜索服务，ElasticSearch和Solr作为检索工具，支持可插拔配置，默认使用SQL搜索
 - boom_commons: 是公共模块，主要用于存放Entity实体类和Feign远程调用接口
 - boom_utils: 是常用工具类；
 - boom_xo: 是存放 VO、Service，Dao层的
