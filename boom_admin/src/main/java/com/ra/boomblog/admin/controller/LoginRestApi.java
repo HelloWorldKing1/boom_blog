@@ -205,8 +205,11 @@ public class LoginRestApi {
             String[] uids = caetgoryMenuUids.replace("[", "").replace("]", "").replace("\"", "").split(",");
             categoryMenuUids.addAll(Arrays.asList(uids));
         });
-        categoryMenuList = categoryMenuService.listByIds(categoryMenuUids);
-
+        //条件构造器
+        QueryWrapper<CategoryMenu> queryWrapper = new QueryWrapper<>();
+        queryWrapper.in("uid",categoryMenuUids);
+        queryWrapper.eq("status",1);
+        categoryMenuList = categoryMenuService.getBaseMapper().selectList(queryWrapper);
         // 从三级级分类中查询出 二级分类
         List<CategoryMenu> buttonList = new ArrayList<>();
         Set<String> secondMenuUidList = new HashSet<>();
