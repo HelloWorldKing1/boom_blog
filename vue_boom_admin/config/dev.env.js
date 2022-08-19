@@ -10,7 +10,6 @@ module.exports = merge(prodEnv, {
   PICTURE_API: '"http://localhost:8607/boom-picture"',
   WEB_API: '"http://localhost:8607/boom-web"',
   Search_API: '"http://localhost:8607/boom-search"',
-  Spider_API: '"http://localhost:8607/boom-spider"',
   FILE_API: '"http://localhost:8600/"',
   BLOG_WEB_URL: '"http://localhost:9527"',
   SOLR_API: '"http://localhost:8080/solr"',
