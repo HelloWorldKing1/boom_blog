@@ -17,7 +17,7 @@
 
 > 基于蘑菇博客修改的`boom_blog`
 >
-> 在修改的同时、学习SpringCloud和Vue相关知识
+> 在修改的同时、学习SpringCloud和Vue3相关知识
 > 
 
 ## 目录介绍
