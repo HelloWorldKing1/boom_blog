@@ -1,18 +1,18 @@
 version: '3'
 services:
   #授权服务
-  vue_mogu_web:
-    image: registry.cn-shenzhen.aliyuncs.com/mogublog/vue_mogu_web:latest
-    container_name: vue_mogu_web
+  vue_boom_web:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/vue_boom_web:latest
+    container_name: vue_boom_web
     restart: always
     ports:
       - 9527:80
     networks:
-      - mogu
+      - boom
     env_file:
       - ../config/vue_boom_web.env
     environment:
-      - COMPOSE_PROJECT_NAME=vue_mogu_web
+      - COMPOSE_PROJECT_NAME=vue_boom_web
 networks:
-  mogu:
+  boom:
     external: true

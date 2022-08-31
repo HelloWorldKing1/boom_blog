@@ -1,0 +1,19 @@
+version: '3'
+services:
+  #授权服务
+  boom_sms:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/boom_sms:latest
+    container_name: boom_sms
+    restart: always
+    ports:
+      - 8604:8604
+    networks:
+      - boom
+    environment:
+      - COMPOSE_PROJECT_NAME=boom_sms
+    volumes:
+      - ../log/:/logs/
+      - ../config/boom_sms/:/config/
+networks:
+  boom:
+    external: true

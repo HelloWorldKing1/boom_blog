@@ -8,8 +8,8 @@ services:
       - "9000:9000"
       - "9001:9001"
     environment:
-      - "MINIO_ACCESS_KEY=mogu2018"
-      - "MINIO_SECRET_KEY=mogu2018"
+      - "MINIO_ACCESS_KEY=boom2018"
+      - "MINIO_SECRET_KEY=boom2018"
     command: 
       server /data
       --console-address ":9001"
@@ -18,8 +18,8 @@ services:
       - ../config/minio/minio:/minio
       - ../config/minio/config:/root/.minio
     networks:
-      - mogu    
+      - boom    
 
 networks:
-  mogu:
+  boom:
     external: true

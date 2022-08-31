@@ -36,7 +36,7 @@ public class RabbitMqConfig {
      * @return
      */
     @Bean(BOOM_BLOG)
-    public Queue MOGU_BLOG() {
+    public Queue BOOM_BLOG() {
         return new Queue(BOOM_BLOG);
     }
 
@@ -46,7 +46,7 @@ public class RabbitMqConfig {
      * @return
      */
     @Bean(BOOM_EMAIL)
-    public Queue MOGU_EMAIL() {
+    public Queue BOOM_EMAIL() {
         return new Queue(BOOM_EMAIL);
     }
 
@@ -56,7 +56,7 @@ public class RabbitMqConfig {
      * @return
      */
     @Bean(BOOM_SMS)
-    public Queue MOGU_SMS() {
+    public Queue BOOM_SMS() {
         return new Queue(BOOM_SMS);
     }
 

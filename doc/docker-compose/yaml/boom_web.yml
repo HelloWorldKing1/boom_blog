@@ -1,0 +1,19 @@
+version: '3'
+services:
+  #授权服务
+  boom_web:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/boom_web:latest
+    container_name: boom_web
+    restart: always
+    ports:
+      - 8603:8603
+    networks:
+      - boom
+    environment:
+      - COMPOSE_PROJECT_NAME=boom_web
+    volumes:
+      - ../log/:/logs/
+      - ../config/boom_web/:/config/
+networks:
+  boom:
+    external: true

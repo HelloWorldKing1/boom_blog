@@ -1,0 +1,19 @@
+version: '3'
+services:
+  #授权服务
+  boom_mointor:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/boom_monitor:latest
+    container_name: boom_monitor
+    restart: always
+    ports:
+      - 8606:8606
+    networks:
+      - boom
+    environment:
+      - COMPOSE_PROJECT_NAME=boom_monitor
+    volumes:
+      - ../log/:/logs/
+      - ../config/boom_monitor/:/config/
+networks:
+  boom:
+    external: true

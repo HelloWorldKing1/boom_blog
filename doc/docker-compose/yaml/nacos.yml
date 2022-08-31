@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   nacos:
-    image: registry.cn-shenzhen.aliyuncs.com/mogublog/nacos-server
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/nacos-server
     container_name: nacos
     env_file:
       - ./nacos/nacos-config.env
@@ -13,8 +13,8 @@ services:
       - "9555:9555"
     restart: always
     networks:
-      - mogu
+      - boom
       
 networks:
-  mogu:
+  boom:
     external: true

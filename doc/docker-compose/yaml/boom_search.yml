@@ -1,0 +1,19 @@
+version: '3'
+services:
+  #授权服务
+  boom_search:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/boom_search:latest
+    container_name: boom_search
+    restart: always
+    ports:
+      - 8605:8605
+    networks:
+      - boom
+    environment:
+      - COMPOSE_PROJECT_NAME=boom_search
+    volumes:
+      - ../log/:/logs/
+      - ../config/boom_search/:/config/
+networks:
+  boom:
+    external: true

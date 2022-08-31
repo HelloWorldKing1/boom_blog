@@ -1,0 +1,20 @@
+version: '3'
+services:
+  #授权服务
+  boom_picture:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/boom_picture:latest
+    container_name: boom_picture
+    restart: always
+    ports:
+      - 8602:8602
+    networks:
+      - boom
+    environment:
+      - COMPOSE_PROJECT_NAME=boom_picture
+    volumes:
+      - ../log/:/logs/
+      - ../config/boom_picture/:/config/      
+      - ../data/boom_data/:/home/boom_blog/boom_data/
+networks:
+  boom:
+    external: true

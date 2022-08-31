@@ -1,0 +1,19 @@
+version: '3'
+services:
+  #授权服务
+  boom_gateway:
+    image: registry.cn-shenzhen.aliyuncs.com/boomblog/boom_gateway:latest
+    container_name: boom_gateway
+    restart: always
+    ports:
+      - 8607:8607
+    networks:
+      - boom
+    environment:
+      - COMPOSE_PROJECT_NAME=boom_gateway
+    volumes:
+    - ../log/:/logs/
+    - ../config/boom_gateway/:/config/
+networks:
+  boom:
+    external: true

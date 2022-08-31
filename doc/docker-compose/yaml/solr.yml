@@ -9,8 +9,8 @@ services:
     volumes:
       - ../data/solr_data/solr:/usr/local/tomcat/webapps/solr
     networks:
-      - mogu
+      - boom
 
 networks:
-  mogu:
+  boom:
     external: true
